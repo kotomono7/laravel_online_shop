@@ -18,7 +18,7 @@ Masuk ke folder dengan perintah
   cd nama_projek
 ```
 
--   Copy .env.example menjadi .env kemudia edit database dan api key nya
+- Copy .env.example menjadi .env kemudia edit database dan api key nya
 
 ```bash
     composer install
@@ -36,7 +36,7 @@ Masuk ke folder dengan perintah
     php artisan storage:link
 ```
 
-#### Login
+## Login
 
--   email = admin@admin.com
--   password = 123
+- email = <admin@admin.com>
+- password = 123
