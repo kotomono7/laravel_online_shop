@@ -22,22 +22,22 @@ class ProductController extends Controller
 
         $products = Product::active();
         $colors = AttributeOption::whereHas(
-			'attribute',
-			function ($query) {
-					$query->where('code', 'color')
-						->where('is_filterable', 1);
-			}
-		)
-        ->orderBy('name', 'asc')->get();
+            'attribute',
+            function ($query) {
+                $query->where('code', 'color')
+                    ->where('is_filterable', 1);
+            }
+        )
+            ->orderBy('name', 'asc')->get();
         $sizes = AttributeOption::whereHas(
-			'attribute',
-			function ($query) {
-				$query->where('code', 'size')
-					->where('is_filterable', 1);
-			}
+            'attribute',
+            function ($query) {
+                $query->where('code', 'size')
+                    ->where('is_filterable', 1);
+            }
         )->orderBy('name', 'asc')->get();
         $categories = Category::parentCategories()
-			->orderBy('name', 'asc')
+            ->orderBy('name', 'asc')
             ->get();
 
         $selectedSort = url('products');
@@ -55,131 +55,131 @@ class ProductController extends Controller
         $products = $this->_sortProducts($products, $request);
         $selectedSort = $this->selectedSort;
         $products = $products->paginate(10);
-        
-        return view('frontend.products.index', compact('products','colors','sizes','minPrice','maxPrice','categories', 'sorts','selectedSort'));
+
+        return view('frontend.products.index', compact('products', 'colors', 'sizes', 'minPrice', 'maxPrice', 'categories', 'sorts', 'selectedSort'));
     }
 
     private function _filterProductsByPriceRange($products, $request)
-	{
-		$lowPrice = null;
-		$highPrice = null;
+    {
+        $lowPrice = null;
+        $highPrice = null;
 
-		if ($priceSlider = $request->query('price')) {
+        if ($priceSlider = $request->query('price')) {
             $prices = explode('-', $priceSlider);
 
-			$lowPrice = (float)$prices[0];
-			$highPrice = (float)$prices[1];
+            $lowPrice = (float) $prices[0];
+            $highPrice = (float) $prices[1];
 
-			if ($lowPrice && $highPrice) {
-				$products = $products->where('price', '>=', $lowPrice)
-					->where('price', '<=', $highPrice)
-					->orWhereHas(
-						'variants',
-						function ($query) use ($lowPrice, $highPrice) {
-							$query->where('price', '>=', $lowPrice)
-								->where('price', '<=', $highPrice);
-						}
-					);
-			}
-		}
+            if ($lowPrice && $highPrice) {
+                $products = $products->where('price', '>=', $lowPrice)
+                    ->where('price', '<=', $highPrice)
+                    ->orWhereHas(
+                        'variants',
+                        function ($query) use ($lowPrice, $highPrice) {
+                            $query->where('price', '>=', $lowPrice)
+                                ->where('price', '<=', $highPrice);
+                        }
+                    );
+            }
+        }
 
-		return $products;
-	}
+        return $products;
+    }
 
     private function _searchProducts($products, $request)
-	{
-		if ($q = $request->query('q')) {
-			$q = str_replace('-', ' ', Str::slug($q));
-			
-			$products = $products->whereRaw('MATCH(name, slug, short_description, description) AGAINST (? IN NATURAL LANGUAGE MODE)', [$q]);
+    {
+        if ($q = $request->query('q')) {
+            $q = str_replace('-', ' ', Str::slug($q));
 
-			$this->data['q'] = $q;
-		}
+            $products = $products->whereRaw('MATCH(name, slug, short_description, description) AGAINST (? IN NATURAL LANGUAGE MODE)', [$q]);
 
-		if ($categorySlug = $request->query('category')) {
-			$category = Category::where('slug', $categorySlug)->firstOrFail();
+            $this->data['q'] = $q;
+        }
 
-			$childIds = Category::childIds($category->id);
-			$categoryIds = array_merge([$category->id], $childIds);
+        if ($categorySlug = $request->query('category')) {
+            $category = Category::where('slug', $categorySlug)->firstOrFail();
 
-			$products = $products->whereHas(
-				'categories',
-				function ($query) use ($categoryIds) {
-					$query->whereIn('categories.id', $categoryIds);
-				}
-			);
-		}
+            $childIds = Category::childIds($category->id);
+            $categoryIds = array_merge([$category->id], $childIds);
 
-		return $products;
+            $products = $products->whereHas(
+                'categories',
+                function ($query) use ($categoryIds) {
+                    $query->whereIn('categories.id', $categoryIds);
+                }
+            );
+        }
+
+        return $products;
     }
-    
+
     private function _filterProductsByAttribute($products, $request)
-	{
-		if ($attributeOptionID = $request->query('option')) {
-			$attributeOption = AttributeOption::findOrFail($attributeOptionID);
+    {
+        if ($attributeOptionID = $request->query('option')) {
+            $attributeOption = AttributeOption::findOrFail($attributeOptionID);
 
-			$products = $products->whereHas(
-				'ProductAttributeValues',
-				function ($query) use ($attributeOption) {
-					$query->where('attribute_id', $attributeOption->attribute_id)
-						->where('text_value', $attributeOption->name);
-				}
-			);
-		}
+            $products = $products->whereHas(
+                'ProductAttributeValues',
+                function ($query) use ($attributeOption) {
+                    $query->where('attribute_id', $attributeOption->attribute_id)
+                        ->where('text_value', $attributeOption->name);
+                }
+            );
+        }
 
-		return $products;
+        return $products;
     }
-    
+
     private function _sortProducts($products, $request)
-	{
-		if ($sort = preg_replace('/\s+/', '', $request->query('sort'))) {
-			$availableSorts = ['price', 'created_at'];
-			$availableOrder = ['asc', 'desc'];
-			$sortAndOrder = explode('-', $sort);
+    {
+        if ($sort = preg_replace('/\s+/', '', $request->query('sort'))) {
+            $availableSorts = ['price', 'created_at'];
+            $availableOrder = ['asc', 'desc'];
+            $sortAndOrder = explode('-', $sort);
 
-			$sortBy = strtolower($sortAndOrder[0]);
-			$orderBy = strtolower($sortAndOrder[1]);
+            $sortBy = strtolower($sortAndOrder[0]);
+            $orderBy = strtolower($sortAndOrder[1]);
 
-			if (in_array($sortBy, $availableSorts) && in_array($orderBy, $availableOrder)) {
-				$products = $products->orderBy($sortBy, $orderBy);
-			}
+            if (in_array($sortBy, $availableSorts) && in_array($orderBy, $availableOrder)) {
+                $products = $products->orderBy($sortBy, $orderBy);
+            }
 
-            $this->selectedSort = url('products?sort='. $sort);
-		}
-		
-		return $products;
-	}
+            $this->selectedSort = url('products?sort=' . $sort);
+        }
+
+        return $products;
+    }
 
     public function show(Product $product)
     {
-		// dd($product->categories->first()->id);
-		// dd($product->id);
+        // dd($product->categories->first()->id);
+        // dd($product->id);
 
-		 $relateds = Product::whereHas('categories', function ($query) use ($product) {
-            $query->where('category_id',$product->categories->first()->id);
+        $relateds = Product::whereHas('categories', function ($query) use ($product) {
+            $query->where('category_id', $product->categories->first()->id);
         })
-			->where('id', '<>', $product->id)
-			->active()
-			->get();
-        
+            ->where('id', '<>', $product->id)
+            ->active()
+            ->get();
+
 
         if (!$product->configurable()) {
-            return view('frontend.products.show', compact('product','relateds'));
+            return view('frontend.products.show', compact('product', 'relateds'));
         }
 
         $colors = ProductAttributeValue::getAttributeOptions($product, 'color')->pluck('text_value', 'text_value');
         $sizes = ProductAttributeValue::getAttributeOptions($product, 'size')->pluck('text_value', 'text_value');
-        return view('frontend.products.show', compact('product', 'sizes', 'colors','relateds'));
+        return view('frontend.products.show', compact('product', 'sizes', 'colors', 'relateds'));
     }
 
     public function quickView(Product $product)
-	{
-		if (!$product->configurable()) {
+    {
+        if (!$product->configurable()) {
             return view('frontend.products.quick_view', compact('product'));
         }
 
         $colors = ProductAttributeValue::getAttributeOptions($product, 'color')->pluck('text_value', 'text_value');
         $sizes = ProductAttributeValue::getAttributeOptions($product, 'size')->pluck('text_value', 'text_value');
         return view('frontend.products.quick_view', compact('product', 'sizes', 'colors'));
-	}
+    }
 }

@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers\Frontend;
 
+use App\Http\Controllers\Controller;
 use App\Models\Order;
 use App\Models\Review;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-
 
 class ReviewController extends Controller
 {
@@ -14,14 +13,14 @@ class ReviewController extends Controller
 
     public function index()
     {
-        return "ok";
+        return 'ok';
     }
 
     public function store(Request $request)
     {
         $this->productId = $request->product_id;
 
-        if(!auth()->check()) {
+        if (!auth()->check()) {
             return redirect()->back()->with([
                 'message' => 'Login terlebih dahulu',
                 'alert-type' => 'info'
@@ -31,8 +30,8 @@ class ReviewController extends Controller
         $checkProduct = Order::whereHas('orderItems', function ($query) {
             $query->where('product_id', $this->productId);
         })->where('user_id', auth()->id())->where('status', Order::COMPLETED)->first();
-        
-        if(is_null($checkProduct)){
+
+        if (is_null($checkProduct)) {
             return redirect()->back()->with([
                 'message' => 'Beli dulu produknya!',
                 'alert-type' => 'info'
