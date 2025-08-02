@@ -1,4 +1,4 @@
-# Laravel 10 - Toko Online
+# Laravel 10 - Starter Template Toko Online
 
 ## Screenshots
 
@@ -9,13 +9,13 @@
 Clone Projek
 
 ```bash
-  git clone https://github.com/abdulaziz-m5u/toko-online-laravel.git nama_projek
+  git clone https://github.com/kotomono7/laravel_online_shop nama_folder
 ```
 
 Masuk ke folder dengan perintah
 
 ```bash
-  cd nama_projek
+  cd nama_folder
 ```
 
 - Copy .env.example menjadi .env kemudia edit database dan api key nya
