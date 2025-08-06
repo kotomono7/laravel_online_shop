@@ -23,8 +23,11 @@
                         <div class="col-6">
                             <div class="form-group">
                                 <label for="name">Name</label>
-                                <input class="form-control" id="name" type="text" name="name" value="{{ old('name') }}">
-                                @error('name')<span class="text-danger">{{ $message }}</span>@enderror
+                                <input class="form-control" id="name" type="text" name="name"
+                                    value="{{ old('name') }}">
+                                @error('name')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
                             </div>
                         </div>
                     </div>

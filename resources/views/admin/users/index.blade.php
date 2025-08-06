@@ -10,7 +10,8 @@
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title">Data Pengguna</h3>
-                            <a href="{{ route('admin.users.index') }}" class="btn btn-success shadow-sm float-right"> <i class="fa fa-plus"></i> Tambah</a>
+                            <a href="{{ route('admin.users.index') }}" class="btn btn-success shadow-sm float-right"> <i
+                                    class="fa fa-plus"></i> Tambah</a>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
@@ -27,12 +28,12 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach($users as $user)
-                                        <tr>
-                                            <td>{{ $user->first_name . $user->last_name }}</td>
-                                            <td>{{ $user->email }}</td>
-                                        </tr>
-                                    @endforeach
+                                        @foreach ($users as $user)
+                                            <tr>
+                                                <td>{{ $user->first_name . $user->last_name }}</td>
+                                                <td>{{ $user->email }}</td>
+                                            </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>

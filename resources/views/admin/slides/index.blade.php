@@ -10,7 +10,8 @@
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title">Data Slieshow</h3>
-                            <a href="{{ route('admin.slides.create') }}" class="btn btn-success shadow-sm float-right"> <i class="fa fa-plus"></i> Tambah</a>
+                            <a href="{{ route('admin.slides.create') }}" class="btn btn-success shadow-sm float-right"> <i
+                                    class="fa fa-plus"></i> Tambah</a>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
@@ -34,13 +35,15 @@
                                                 <td><img width="200" src="{{ Storage::url($slide->path) }}" /></td>
                                                 <td>
                                                     @if ($slide->prevSlide())
-                                                        <a href="{{ url('admin/slides/' . $slide->id . '/up') }}">Geser ke Atas</a>
+                                                        <a href="{{ url('admin/slides/' . $slide->id . '/up') }}">Geser ke
+                                                            Atas</a>
                                                     @else
                                                         Geser ke Atas
                                                     @endif
                                                     |
                                                     @if ($slide->nextSlide())
-                                                        <a href="{{ url('admin/slides/' . $slide->id . '/down') }}">Geser ke Bawah</a>
+                                                        <a href="{{ url('admin/slides/' . $slide->id . '/down') }}">Geser ke
+                                                            Bawah</a>
                                                     @else
                                                         Geser ke Bawah
                                                     @endif
@@ -48,7 +51,8 @@
                                                 <td>{{ $slide->status }}</td>
                                                 <td>
                                                     <div class="btn-group btn-group-sm">
-                                                        <a href="{{ route('admin.slides.edit', $slide) }}" class="btn btn-sm btn-primary">
+                                                        <a href="{{ route('admin.slides.edit', $slide) }}"
+                                                            class="btn btn-sm btn-primary">
                                                             <i class="fa fa-edit"></i>
                                                         </a>
                                                         <form onclick="return confirm('Yakin ingin menghapus data ini?')"

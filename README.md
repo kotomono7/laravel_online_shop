@@ -6,7 +6,7 @@
 
 ## Download
 
-Clone Projek
+Clone Repo
 
 ```bash
   git clone https://github.com/kotomono7/laravel_online_shop nama_folder

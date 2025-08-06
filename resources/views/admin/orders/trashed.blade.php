@@ -21,7 +21,7 @@
                             </thead>
                             <tbody>
                                 @forelse ($orders as $order)
-                                    <tr>    
+                                    <tr>
                                         <td>
                                             {{ $order->code }}<br>
                                             <span style="font-size: 12px; font-weight: normal"> {{ $order->order_date }}</span>
@@ -56,7 +56,7 @@
   <link rel="stylesheet" href="https://cdn.datatables.net/1.13.3/css/jquery.dataTables.min.css">
 @endpush
 
-@push('script-alt') 
+@push('script-alt')
     <script
         src="https://code.jquery.com/jquery-3.6.3.min.js"
         integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="

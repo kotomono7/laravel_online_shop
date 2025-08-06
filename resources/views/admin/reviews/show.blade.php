@@ -16,35 +16,35 @@
             <div class="table-responsive">
                 <table class="table table-hover">
                     <thead>
-                    <tr class="bg-secondary text-white">
-                        <th>Name</th>
-                        <th>Status</th>
-                        <th>Product Name</th>
-                        <th>Rating</th>
-                        <th>Created at</th>
-                    </tr>
+                        <tr class="bg-secondary text-white">
+                            <th>Name</th>
+                            <th>Status</th>
+                            <th>Product Name</th>
+                            <th>Rating</th>
+                            <th>Created at</th>
+                        </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td>
-                            {{ $review->user_id ? $review->user->name : $review->name }}<br>
-                            <small>{{ $review->email }}</small>
-                        </td>
-                        <td>{{ $review->product->name }}</td>
-                        <td>{{ $review->status }}</td>
-                        <td><span class="badge badge-success">{{ $review->rating }}</span></td>
-                        <td>{{ $review->created_at }}</td>
-                    </tr>
+                        <tr>
+                            <td>
+                                {{ $review->user_id ? $review->user->name : $review->name }}<br>
+                                <small>{{ $review->email }}</small>
+                            </td>
+                            <td>{{ $review->product->name }}</td>
+                            <td>{{ $review->status }}</td>
+                            <td><span class="badge badge-success">{{ $review->rating }}</span></td>
+                            <td>{{ $review->created_at }}</td>
+                        </tr>
                     </tbody>
                     <thead>
-                    <tr class="bg-secondary text-white" >
-                        <th colspan="5">Message</th>
-                    </tr>
+                        <tr class="bg-secondary text-white">
+                            <th colspan="5">Message</th>
+                        </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td colspan="5">{{ $review->content }}</td>
-                    </tr>
+                        <tr>
+                            <td colspan="5">{{ $review->content }}</td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
