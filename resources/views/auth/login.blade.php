@@ -2,13 +2,13 @@
 
 @section('content')
     <div class="card-body login-card-body">
-        <p class="login-box-msg">{{ __('Login') }}</p>
+        <p class="login-box-msg">{{ __('Panel Pengguna') }}</p>
 
         <form action="{{ route('login') }}" method="post">
             @csrf
 
             <div class="input-group mb-3">
-                <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" placeholder="{{ __('Email') }}" autofocus>
+                <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" placeholder="{{ __('Alamat E-mail') }}" autofocus>
                 <div class="input-group-append">
                     <div class="input-group-text">
                         <span class="fas fa-envelope"></span>
@@ -22,7 +22,7 @@
             </div>
 
             <div class="input-group mb-3">
-                <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" placeholder="{{ __('Password') }}">
+                <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" placeholder="{{ __('Kata Sandi') }}">
                 <div class="input-group-append">
                     <div class="input-group-text">
                         <span class="fas fa-lock"></span>
@@ -40,7 +40,7 @@
                     <div class="icheck-primary">
                         <input type="checkbox" id="remember" name="remember">
                         <label for="remember">
-                            {{ __('Remember Me') }}
+                            {{ __('Ingat akun saya') }}
                         </label>
                     </div>
                 </div>
@@ -54,7 +54,7 @@
 
         @if (Route::has('password.request'))
             <p class="mb-1">
-                <a href="{{ route('password.request') }}">{{ __('Forgot Your Password?') }}</a>
+                <a href="{{ route('password.request') }}">{{ __('Lupa kata sandi?') }}</a>
             </p>
         @endif
     </div>

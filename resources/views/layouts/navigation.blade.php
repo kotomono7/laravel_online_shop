@@ -15,7 +15,7 @@
                 <a href="{{ route('admin.dashboard') }}" class="nav-link">
                     <i class="nav-icon fas fa-th"></i>
                     <p>
-                        {{ __('Dashboard') }}
+                        {{ __('Halaman Dasbor') }}
                     </p>
                 </a>
             </li>
@@ -24,7 +24,7 @@
                 <a href="{{ route('admin.users.index') }}" class="nav-link">
                     <i class="nav-icon fas fa-users"></i>
                     <p>
-                        {{ __('Users') }}
+                        {{ __('Data Pengguna') }}
                     </p>
                 </a>
             </li>
@@ -33,7 +33,7 @@
                 <a href="{{ route('admin.slides.index') }}" class="nav-link">
                     <i class="nav-icon fa fa-image"></i>
                     <p>
-                        {{ __('Slide') }}
+                        {{ __('Data Slideshow') }}
                     </p>
                 </a>
             </li>
@@ -42,7 +42,7 @@
                 <a href="#" class="nav-link">
                     <i class="nav-icon fas fa-circle nav-icon"></i>
                     <p>
-                        Managemen Produk
+                        Manajemen Produk
                         <i class="fas fa-angle-left right"></i>
                     </p>
                 </a>
@@ -77,7 +77,7 @@
                 <a href="#" class="nav-link">
                     <i class="nav-icon fas fa-circle nav-icon"></i>
                     <p>
-                        Managemen Order
+                        Manajemen Pesanan
                         <i class="fas fa-angle-left right"></i>
                     </p>
                 </a>
@@ -85,7 +85,7 @@
                     <li class="nav-item">
                         <a href="{{ route('admin.orders.index') }}" class="nav-link">
                             <i class="fa fa-plus nav-icon"></i>
-                            <p>Order</p>
+                            <p>Pesanan</p>
                         </a>
                     </li>
                     <li class="nav-item">
@@ -100,7 +100,7 @@
                 <a href="#" class="nav-link">
                     <i class="nav-icon fas fa-circle nav-icon"></i>
                     <p>
-                        Managemen Laporan
+                        Manajemen Laporan
                         <i class="fas fa-angle-left right"></i>
                     </p>
                 </a>
@@ -120,7 +120,7 @@
                     <li class="nav-item">
                         <a href="{{ route('admin.reports.inventory') }}" class="nav-link">
                             <i class="fa fa-plus nav-icon"></i>
-                            <p>Inventory</p>
+                            <p>Gudang</p>
                         </a>
                     </li>
                     <!-- <li class="nav-item">

@@ -1,10 +1,10 @@
 # Laravel 10 - Starter Template Toko Online
 
-## Screenshots
+## Preview
 
 ![preview img](/preview.png)
 
-## Donwload
+## Download
 
 Clone Projek
 
@@ -18,7 +18,7 @@ Masuk ke folder dengan perintah
   cd nama_folder
 ```
 
-- Copy .env.example menjadi .env kemudia edit database dan api key nya
+- Copy .env.example menjadi .env kemudian edit database dan api key nya
 
 ```bash
     composer install

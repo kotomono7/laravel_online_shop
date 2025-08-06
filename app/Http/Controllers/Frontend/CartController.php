@@ -40,22 +40,21 @@ class CartController extends Controller
         if ($product->configurable()) {
             $product = Product::from('products as p')
                 ->whereRaw(
-                    "p.parent_id = :parent_product_id
-\t\t\t\tand (select pav.text_value
-\t\t\t\t\t\tfrom product_attribute_values pav
-\t\t\t\t\t\tjoin attributes a on a.id = pav.attribute_id
-\t\t\t\t\t\twhere a.code = :size_code
-\t\t\t\t\t\tand pav.product_id = p.id
-\t\t\t\t\t\tlimit 1
-\t\t\t\t\t) = :size_value
-\t\t\t\tand (select pav.text_value
-\t\t\t\t\t\tfrom product_attribute_values pav
-\t\t\t\t\t\tjoin attributes a on a.id = pav.attribute_id
-\t\t\t\t\t\twhere a.code = :color_code
-\t\t\t\t\t\tand pav.product_id = p.id
-\t\t\t\t\t\tlimit 1
-\t\t\t\t\t) = :color_value
-\t\t\t\t\t",
+                    "p.parent_id = :parent_product_id and (
+                        select pav.text_value
+                        from product_attribute_values pav
+                        join attributes a on a.id = pav.attribute_id
+                        where a.code = :size_code
+                        and pav.product_id = p.id
+                        limit 1
+                    ) = :size_value and (
+                        select pav.text_value
+                        from product_attribute_values pav
+                        join attributes a on a.id = pav.attribute_id
+                        where a.code = :color_code
+                        and pav.product_id = p.id
+                        limit 1
+                    ) = :color_value",
                     [
                         'parent_product_id' => $product->id,
                         'size_code' => 'size',

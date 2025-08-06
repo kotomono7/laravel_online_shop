@@ -43,10 +43,10 @@ class ProductController extends Controller
         $selectedSort = url('products');
         $sorts = [
             url('products') => 'Pilih Urutan',
-            url('products?sort=price-asc') => 'Price - Low to High',
-            url('products?sort=price-desc') => 'Price - High to Low',
-            url('products?sort=created_at-desc') => 'Newest to Oldest',
-            url('products?sort=created_at-asc') => 'Oldest to Newest',
+            url('products?sort=price-asc') => 'Harga - Terendah ke Tertinggi',
+            url('products?sort=price-desc') => 'Harga - Tertinggi ke Terendah',
+            url('products?sort=created_at-desc') => 'Produk - Terbaru ke Terlama',
+            url('products?sort=created_at-asc') => 'Produk - Terlama ke Terbaru',
         ];
 
         $products = $this->_searchProducts($products, $request);

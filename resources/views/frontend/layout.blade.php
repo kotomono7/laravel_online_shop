@@ -4,10 +4,10 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>{{ config('app.name', 'Laravel') }}</title>
-    <link rel="icon" type="image/x-icon" href="{{ asset('assets/images/favicon.png') }}">
-    <meta name="description" content="">
+    <title>{{ config('app.name', 'Liana Store') }}</title>
+    <meta name="description" content="Liana Store - Toko Fashion dan Aksesoris Terlengkap">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="{{ asset('assets/images/favicon.ico') }}">
     <link
         href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
         rel="stylesheet">
@@ -271,17 +271,17 @@
 
             <div class="logo">
                 <a href="/">
-                    <img width="50%" src="{{ asset('assets/images/liana-store.png') }}" alt="Liana Store" class="logo__image d-block" />
+                    <img src="{{ asset('assets/images/lianastore.png') }}" alt="Liana Store"
+                        class="logo__image d-block" />
                 </a>
             </div>
 
-            <a href="#" class="header-tools__item header-tools__cart js-open-aside" data-aside="cartDrawer">
-                <svg class="d-block" width="20" height="20" viewBox="0 0 20 20" fill="none"
-                    xmlns="http://www.w3.org/2000/svg">
+            {{-- <a href="#" class="header-tools__item header-tools__cart js-open-aside" data-aside="cartDrawer">
+                <svg class="d-block" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <use href="#icon_cart" />
                 </svg>
                 <span class="cart-amount d-block position-absolute js-cart-items-count">0</span>
-            </a>
+            </a> --}}
         </div>
 
         <nav
@@ -290,7 +290,7 @@
                 <form action="#" method="GET" class="search-field position-relative mt-4 mb-3">
                     <div class="position-relative">
                         <input class="search-field__input w-100 border rounded-1" type="text"
-                            name="search-keyword" placeholder="Cari produk kesukaanmu..." />
+                            name="search-keyword" placeholder="Pencarian Produk" />
                         <button class="btn-icon search-popup__submit pb-0 me-2" type="submit">
                             <svg class="d-block" width="20" height="20" viewBox="0 0 20 20" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
@@ -315,14 +315,17 @@
                         <li class="navigation__item">
                             <a href="{{ route('produk') }}" class="navigation__link">Produk</a>
                         </li>
-                        <li class="navigation__item">
+                        {{-- <li class="navigation__item">
                             <a href="{{ route('carts.index') }}" class="navigation__link">Keranjang</a>
+                        </li> --}}
+                        <li class="navigation__item">
+                            <a href="https://shopee.co.id/_xfhi6a0b0" target="_blank" class="navigation__link">Shopee</a>
                         </li>
                         <li class="navigation__item">
-                            <a href="#" class="navigation__link">Tentang</a>
+                            <a href="https://www.tiktok.com/@lianaindah7" target="_blank" class="navigation__link">TikTok</a>
                         </li>
                         <li class="navigation__item">
-                            <a href="#" class="navigation__link">Kontak</a>
+                            <a href="https://www.instagram.com/lianaindah9" target="_blank" class="navigation__link">Instagram</a>
                         </li>
                     </ul>
                 </div>
@@ -336,8 +339,6 @@
                     </svg>
                     <span class="d-inline-block ms-2 text-uppercase align-middle fw-medium">My Account</span>
                 </div>
-
-
 
                 <ul class="container social-links list-unstyled d-flex flex-wrap mb-0">
                     <li>
@@ -391,7 +392,8 @@
             <div class="header-desk header-desk_type_1">
                 <div class="logo">
                     <a href="/">
-                        <img width="50%" src="{{ asset('assets/images/liana-store.png') }}" alt="Liana Store" class="logo__image d-block" />
+                        <img width="50%" src="{{ asset('assets/images/lianastore.png') }}" alt="Liana Store"
+                            class="logo__image d-block" />
                     </a>
                 </div>
 
@@ -403,14 +405,17 @@
                         <li class="navigation__item">
                             <a href="{{ route('produk') }}" class="navigation__link">Produk</a>
                         </li>
-                        <li class="navigation__item">
+                        {{-- <li class="navigation__item">
                             <a href="{{ route('carts.index') }}" class="navigation__link">Keranjang</a>
+                        </li> --}}
+                        <li class="navigation__item">
+                            <a href="https://shopee.co.id/_xfhi6a0b0" target="_blank" class="navigation__link">Shopee</a>
                         </li>
                         <li class="navigation__item">
-                            <a href="#" class="navigation__link">Tentang</a>
+                            <a href="https://www.tiktok.com/@lianaindah7" target="_blank" class="navigation__link">TikTok</a>
                         </li>
                         <li class="navigation__item">
-                            <a href="#" class="navigation__link">Kontak</a>
+                            <a href="https://www.instagram.com/lianaindah9" target="_blank" class="navigation__link">Instagram</a>
                         </li>
                     </ul>
                 </nav>
@@ -429,11 +434,11 @@
 
                         <div class="search-popup js-hidden-content">
                             <form action="{{ url('products') }}" method="GET" class="search-field container">
-                                <p class="text-uppercase text-secondary fw-medium mb-4">Cari Produk Kesukaanmu?</p>
+                                <p class="text-uppercase text-secondary fw-medium mb-4">Pencarian Produk</p>
                                 <div class="position-relative">
                                     <input class="search-field__input search-popup__input w-100 fw-medium"
                                         type="text" name="q" value="{{ isset($q) ? $q : null }}"
-                                        placeholder="Cari Produk " />
+                                        placeholder="Ketik nama produk disini" />
                                     <button class="btn-icon search-popup__submit" type="submit">
                                         <svg class="d-block" width="20" height="20" viewBox="0 0 20 20"
                                             fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -504,100 +509,137 @@
                 <div class="footer-column footer-store-info col-12 mb-4 mb-lg-0">
                     <div class="logo">
                         <a href="/">
-                            <img width="75%" src="{{ asset('assets/images/liana-store.png') }}" alt="Liana Store"
-                                class="logo__image d-block" />
+                            <img width="75%" src="{{ asset('assets/images/lianastore.png') }}" alt="Liana Store" class="logo__image d-block" />
                         </a>
                     </div>
-                    <p class="footer-address">Jl. Bahagia Selalu No. 99, Pekalongan, Jawa Tengah</p>
-                    <p class="m-0"><strong class="fw-medium">liana_store@gmail.com</strong></p>
-                    <p><strong class="fw-medium">0857-4111-8200</strong></p>
+                    <p class="footer-address">
+                        Jl. Rombeh, Simpar, Kec. Bandar, Kabupaten Batang,
+                        Jawa Tengah 51254, Indonesia
+                    </p>
+                    <p class="m-0"><strong class="fw-medium">admin@lianastore.my.id</strong></p>
+                    {{-- <p><strong class="fw-medium">0822-2166-5402</strong></p> --}}
 
-                    <ul class="social-links list-unstyled d-flex flex-wrap mb-0">
+                    {{-- <ul class="social-links list-unstyled d-flex flex-wrap mb-0">
                         <li>
                             <a href="#" class="footer__social-link d-block">
-                                <svg class="svg-icon svg-icon_youtube" width="16" height="11"
-                                    viewBox="0 0 16 11" xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M15.0117 1.8584C14.8477 1.20215 14.3281 0.682617 13.6992 0.518555C12.5234 0.19043 7.875 0.19043 7.875 0.19043C7.875 0.19043 3.19922 0.19043 2.02344 0.518555C1.39453 0.682617 0.875 1.20215 0.710938 1.8584C0.382812 3.00684 0.382812 5.46777 0.382812 5.46777C0.382812 5.46777 0.382812 7.90137 0.710938 9.07715C0.875 9.7334 1.39453 10.2256 2.02344 10.3896C3.19922 10.6904 7.875 10.6904 7.875 10.6904C7.875 10.6904 12.5234 10.6904 13.6992 10.3896C14.3281 10.2256 14.8477 9.7334 15.0117 9.07715C15.3398 7.90137 15.3398 5.46777 15.3398 5.46777C15.3398 5.46777 15.3398 3.00684 15.0117 1.8584ZM6.34375 7.68262V3.25293L10.2266 5.46777L6.34375 7.68262Z" />
-                                </svg>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="footer__social-link d-block">
-                                <svg class="svg-icon svg-icon_instagram" width="14" height="13"
-                                    viewBox="0 0 14 13" xmlns="http://www.w3.org/2000/svg">
+                                <svg class="svg-icon svg-icon_instagram" width="14" height="13" viewBox="0 0 14 13" xmlns="http://www.w3.org/2000/svg">
                                     <use href="#icon_instagram" />
                                 </svg>
                             </a>
                         </li>
                         <li>
                             <a href="#" class="footer__social-link d-block">
-                                <svg class="svg-icon svg-icon_facebook" width="9" height="15"
-                                    viewBox="0 0 9 15" xmlns="http://www.w3.org/2000/svg">
+                                <svg class="svg-icon svg-icon_facebook" width="9" height="15" viewBox="0 0 9 15" xmlns="http://www.w3.org/2000/svg">
                                     <use href="#icon_facebook" />
                                 </svg>
                             </a>
                         </li>
-                        {{-- <li>
+                        <li>
                             <a href="#" class="footer__social-link d-block">
-                                <svg class="svg-icon svg-icon_twitter" width="14" height="13"
-                                    viewBox="0 0 14 13" xmlns="http://www.w3.org/2000/svg">
+                                <svg class="svg-icon svg-icon_twitter" width="14" height="13" viewBox="0 0 14 13" xmlns="http://www.w3.org/2000/svg">
                                     <use href="#icon_twitter" />
                                 </svg>
                             </a>
-                        </li> --}}
-                        {{-- <li>
+                        </li>
+                        <li>
                             <a href="#" class="footer__social-link d-block">
-                                <svg class="svg-icon svg-icon_pinterest" width="14" height="15"
-                                    viewBox="0 0 14 15" xmlns="http://www.w3.org/2000/svg">
+                                <svg class="svg-icon svg-icon_pinterest" width="14" height="15" viewBox="0 0 14 15" xmlns="http://www.w3.org/2000/svg">
                                     <use href="#icon_pinterest" />
                                 </svg>
                             </a>
-                        </li> --}}
-                    </ul>
+                        </li>
+                        <li>
+                            <a href="#" class="footer__social-link d-block">
+                                <svg class="svg-icon svg-icon_youtube" width="16" height="11" viewBox="0 0 16 11" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M15.0117 1.8584C14.8477 1.20215 14.3281 0.682617 13.6992 0.518555C12.5234 0.19043 7.875 0.19043 7.875 0.19043C7.875 0.19043 3.19922 0.19043 2.02344 0.518555C1.39453 0.682617 0.875 1.20215 0.710938 1.8584C0.382812 3.00684 0.382812 5.46777 0.382812 5.46777C0.382812 5.46777 0.382812 7.90137 0.710938 9.07715C0.875 9.7334 1.39453 10.2256 2.02344 10.3896C3.19922 10.6904 7.875 10.6904 7.875 10.6904C7.875 10.6904 12.5234 10.6904 13.6992 10.3896C14.3281 10.2256 14.8477 9.7334 15.0117 9.07715C15.3398 7.90137 15.3398 5.46777 15.3398 5.46777C15.3398 5.46777 15.3398 3.00684 15.0117 1.8584ZM6.34375 7.68262V3.25293L10.2266 5.46777L6.34375 7.68262Z" />
+                                </svg>
+                            </a>
+                        </li>
+                    </ul> --}}
                 </div>
 
                 <div class="footer-column footer-menu mb-4 mb-lg-0">
                     <h6 class="sub-menu__title text-uppercase">Liana Store</h6>
                     <ul class="sub-menu__list list-unstyled">
-                        <li class="sub-menu__item"><a href="#" class="menu-link menu-link_us-s">Tentang Kami</a></li>
-                        <li class="sub-menu__item"><a href="#" class="menu-link menu-link_us-s">Syarat dan Ketentuan</a></li>
-                        <li class="sub-menu__item"><a href="#" class="menu-link menu-link_us-s">Layanan Pelanggan</a></li>
-                        <li class="sub-menu__item"><a href="#" class="menu-link menu-link_us-s">Promo dan Diskon</a></li>
-                        <li class="sub-menu__item"><a href="#" class="menu-link menu-link_us-s">Lowongan Pekerjaan</a></a></li>
+                        <li class="sub-menu__item">
+                            <a href="#" class="menu-link menu-link_us-s">Tentang Kami</a>
+                        </li>
+                        <li class="sub-menu__item">
+                            <a href="#" class="menu-link menu-link_us-s">Syarat dan Ketentuan</a>
+                        </li>
+                        <li class="sub-menu__item">
+                            <a href="#" class="menu-link menu-link_us-s">Layanan Pelanggan</a>
+                        </li>
+                        <li class="sub-menu__item">
+                            <a href="#" class="menu-link menu-link_us-s">Promo dan Diskon</a>
+                        </li>
+                        <li class="sub-menu__item">
+                            <a href="#" class="menu-link menu-link_us-s">Lowongan Pekerjaan</a>
+                        </li>
                     </ul>
                 </div>
 
                 <div class="footer-column footer-menu mb-4 mb-lg-0">
                     <h6 class="sub-menu__title text-uppercase">Kategori</h6>
                     <ul class="sub-menu__list list-unstyled">
-                        <li class="sub-menu__item"><a href="#" class="menu-link menu-link_us-s">Baju</a></li>
-                        <li class="sub-menu__item"><a href="#" class="menu-link menu-link_us-s">Celana</a></li>
-                        <li class="sub-menu__item"><a href="#" class="menu-link menu-link_us-s">Kaos</a></li>
-                        <li class="sub-menu__item"><a href="#" class="menu-link menu-link_us-s">Kemeja</a></li>
-                        <li class="sub-menu__item"><a href="#" class="menu-link menu-link_us-s">Semua Kategori</a></li>
+                        <li class="sub-menu__item">
+                            <a href="#" class="menu-link menu-link_us-s">Baju</a>
+                        </li>
+                        <li class="sub-menu__item">
+                            <a href="#" class="menu-link menu-link_us-s">Celana</a>
+                        </li>
+                        <li class="sub-menu__item">
+                            <a href="#" class="menu-link menu-link_us-s">Kaos</a>
+                        </li>
+                        <li class="sub-menu__item">
+                            <a href="#" class="menu-link menu-link_us-s">Kemeja</a>
+                        </li>
+                        <li class="sub-menu__item">
+                            <a href="#" class="menu-link menu-link_us-s">Semua Kategori</a>
+                        </li>
                     </ul>
                 </div>
 
                 <div class="footer-column footer-menu mb-4 mb-lg-0">
                     <h6 class="sub-menu__title text-uppercase">Produk</h6>
                     <ul class="sub-menu__list list-unstyled">
-                        <li class="sub-menu__item"><a href="#" class="menu-link menu-link_us-s">Produk Terbaru</a></li>
-                        <li class="sub-menu__item"><a href="#" class="menu-link menu-link_us-s">Pakaian Laki-Laki</a></li>
-                        <li class="sub-menu__item"><a href="#" class="menu-link menu-link_us-s">Pakaian Perempuan</a></li>
-                        <li class="sub-menu__item"><a href="#" class="menu-link menu-link_us-s">Aksesoris</a></li>
-                        <li class="sub-menu__item"><a href="#" class="menu-link menu-link_us-s">Semua Produk</a></li>
+                        <li class="sub-menu__item">
+                            <a href="#" class="menu-link menu-link_us-s">Produk Terbaru</a>
+                        </li>
+                        <li class="sub-menu__item">
+                            <a href="#" class="menu-link menu-link_us-s">Pakaian Laki-Laki</a>
+                        </li>
+                        <li class="sub-menu__item">
+                            <a href="#" class="menu-link menu-link_us-s">Pakaian Perempuan</a>
+                        </li>
+                        <li class="sub-menu__item">
+                            <a href="#" class="menu-link menu-link_us-s">Aksesoris</a>
+                        </li>
+                        <li class="sub-menu__item">
+                            <a href="#" class="menu-link menu-link_us-s">Semua Produk</a>
+                        </li>
                     </ul>
                 </div>
 
                 <div class="footer-column footer-menu mb-4 mb-lg-0">
                     <h6 class="sub-menu__title text-uppercase">Sosial</h6>
                     <ul class="sub-menu__list list-unstyled">
-                        <li class="sub-menu__item"><a href="#" class="menu-link menu-link_us-s">Shopee</a></li>
-                        <li class="sub-menu__item"><a href="#" class="menu-link menu-link_us-s">Tokopedia</a></li>
-                        <li class="sub-menu__item"><a href="#" class="menu-link menu-link_us-s">Lazada</a></li>
-                        <li class="sub-menu__item"><a href="#" class="menu-link menu-link_us-s">Instagram</a></li>
-                        <li class="sub-menu__item"><a href="#" class="menu-link menu-link_us-s">WhatsApp</a></li>
+                        <li class="sub-menu__item">
+                            <a href="#" class="menu-link menu-link_us-s">Tokopedia</a>
+                        </li>
+                        <li class="sub-menu__item">
+                            <a href="https://shopee.co.id/_xfhi6a0b0" target="_blank" class="menu-link menu-link_us-s">Shopee</a>
+                        </li>
+                        <li class="sub-menu__item">
+                            <a href="https://www.tiktok.com/@lianaindah7" target="_blank" class="menu-link menu-link_us-s">TikTok</a>
+                        </li>
+                        <li class="sub-menu__item">
+                            <a href="https://www.instagram.com/lianaindah93" target="_blank" class="menu-link menu-link_us-s">Instagram</a>
+                        </li>
+                        <li class="sub-menu__item">
+                            <a href="https://api.whatsapp.com/send/?phone=%2B6282221665402&text&type=phone_number&app_absent=0"
+                                target="_blank" class="menu-link menu-link_us-s">WhatsApp</a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -605,10 +647,9 @@
 
         <div class="footer-bottom">
             <div class="container d-md-flex align-items-center">
-                <span class="footer-copyright me-auto">© <?php echo date("Y"); ?> LIANA STORE</span>
+                <span class="footer-copyright me-auto">© <?php echo date('Y'); ?> Liana Store</span>
                 <div class="footer-settings d-md-flex align-items-center">
-                    <a href="#">Privacy Policy</a> &nbsp;|&nbsp; <a href="#">Terms &amp;
-                        Conditions</a>
+                    <a href="#">Kebijakan Privasi</a> &nbsp;|&nbsp; <a href="#">Syarat &amp; Ketentuan</a>
                 </div>
             </div>
         </div>
@@ -637,15 +678,18 @@
             </div>
 
             <div class="col-4">
-                <a href="{{ route('carts.index') }}" class="footer-mobile__link d-flex flex-column align-items-center">
+                <a href="{{ route('carts.index') }}"
+                    class="footer-mobile__link d-flex flex-column align-items-center">
                     <div class="position-relative">
                         <svg class="d-block" width="18" height="18" viewBox="0 0 20 20" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
-                            <use href="#icon_heart" />
+                            <use href="#icon_cart" />
                         </svg>
-                        <span class="wishlist-amount d-block position-absolute js-wishlist-count">0</span>
+                        {{-- <span class="cart-amount d-block position-absolute js-wishlist-count">0</span> --}}
+                        <span
+                            class="cart-amount d-block position-absolute js-cart-items-count">{{ Cart::count() }}</span>
                     </div>
-                    <span>Wishlist</span>
+                    <span>Keranjang</span>
                 </a>
             </div>
         </div>
@@ -655,12 +699,16 @@
         <div id="loading"
             style="z-index:99999;position: fixed;top:0;left:0;right:0;bottom:0;background-color:rgba(0,0,0,.8);display: flex;justify-content:center;align-items: center;"
             class="mx-auto">
-            <p class="text-white"><img src="{{ asset('assets/images/loading.gif') }}" /> Tunggu Sebentar!</p>
+            <p class="text-white"><img src="{{ asset('assets/images/loading.gif') }}" /> Sedang memuat data...</p>
         </div>
     </div>
 
     <div id="scrollTop" class="visually-hidden end-0"></div>
     <div class="page-overlay"></div>
+
+    <!-- Elfsight WhatsApp Chat | Liana Store WhatsApp -->
+    <script src="https://static.elfsight.com/platform/platform.js" async></script>
+    <div class="elfsight-app-7c0f7612-7c8a-44c0-9366-98ad6b45cc1e" data-elfsight-app-lazy></div>
 
     <script src="{{ asset('assets/js/plugins/jquery.min.js') }}"></script>
     <script src="{{ asset('assets/js/plugins/bootstrap.bundle.min.js') }}"></script>

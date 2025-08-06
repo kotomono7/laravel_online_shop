@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="card-body login-card-body">
-        <p class="login-box-msg">{{ __('Register') }}</p>
+        <p class="login-box-msg">{{ __('Buat Akun Baru') }}</p>
 
         <form method="POST" action="{{ route('register') }}">
             @csrf
@@ -65,7 +65,7 @@
 
             <div class="row">
                 <div class="col-12">
-                    <button type="submit" class="btn btn-primary btn-block">{{ __('Register') }}</button>
+                    <button type="submit" class="btn btn-primary btn-block">{{ __('Buat Akun') }}</button>
                 </div>
             </div>
         </form>

@@ -147,7 +147,7 @@
                                         <a product-id="{{ $product->id }}" product-type="{{ $product->type }}"
                                             product-slug="{{ $product->slug }}" href="#"
                                             class="add-to-card btn-link btn-link_lg me-4 text-uppercase fw-medium"
-                                            data-aside="cartDrawer" title="Add To Cart">Add To Cart</a>
+                                            data-aside="cartDrawer" title="Tambah ke Keranjang">Tambah ke Keranjang</a>
                                         <a class="pc__btn-wl bg-transparent border-0 js-add-wishlist add-to-fav"
                                             title="Wishlist" product-slug="{{ $product->slug }}" href="#">
                                             <svg width="16" height="16" viewBox="0 0 20 20" fill="none"

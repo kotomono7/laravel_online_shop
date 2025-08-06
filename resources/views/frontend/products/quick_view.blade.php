@@ -51,7 +51,7 @@
 					</div>
 					<p>{{ $product->short_description }}</p>
 					<form action="{{ route('carts.store') }}" method="post">
-						@csrf 
+						@csrf
                         <input type="hidden" name="product_id" value="{{ $product->id }}">
 						@if ($product->configurable())
 							<div class="quick-view-select">
@@ -79,7 +79,7 @@
 								<input type="number" name="qty" value="1" class="cart-plus-minus-box" min="1">
 							</div>
 							<div class="quickview-btn-cart">
-								<button type="submit" class="submit contact-btn btn-hover">add to cart</button>
+								<button type="submit" class="submit contact-btn btn-hover">Tambah ke Keranjang</button>
 							</div>
 							<div class="quickview-btn-wishlist">
 								<a class="btn-hover" href="#"><i class="pe-7s-like"></i></a>
