@@ -1,8 +1,8 @@
 # Laravel 10 - Starter Template Toko Online
 
-## Preview
+<!-- ## Preview -->
 
-![preview img](/preview.png)
+<!-- ![preview img](/preview.png) -->
 
 ## Download
 
