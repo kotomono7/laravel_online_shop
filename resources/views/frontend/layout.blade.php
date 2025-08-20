@@ -325,7 +325,7 @@
                             <a href="https://www.tiktok.com/@lianaindah7" target="_blank" class="navigation__link">TikTok</a>
                         </li>
                         <li class="navigation__item">
-                            <a href="https://www.instagram.com/lianaindah9" target="_blank" class="navigation__link">Instagram</a>
+                            <a href="https://www.instagram.com/lianaindah93" target="_blank" class="navigation__link">Instagram</a>
                         </li>
                     </ul>
                 </div>
@@ -415,7 +415,7 @@
                             <a href="https://www.tiktok.com/@lianaindah7" target="_blank" class="navigation__link">TikTok</a>
                         </li>
                         <li class="navigation__item">
-                            <a href="https://www.instagram.com/lianaindah9" target="_blank" class="navigation__link">Instagram</a>
+                            <a href="https://www.instagram.com/lianaindah93" target="_blank" class="navigation__link">Instagram</a>
                         </li>
                     </ul>
                 </nav>
